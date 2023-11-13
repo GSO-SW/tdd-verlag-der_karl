@@ -11,6 +11,7 @@ namespace Verlag
         private string autor;
         private string titel;
         private int auflage;
+        private string autorNeu;
 
         public Buch(string autor, string titel, int auflage):this(autor, titel)
         {
@@ -21,8 +22,6 @@ namespace Verlag
             this.autor = autor;
             this.titel = titel;
             auflage = 1;
-
-
         }
         public string Autor
         {
@@ -41,5 +40,11 @@ namespace Verlag
             get { return auflage; }
             set { auflage = value; }
         } 
+        public string autoNeu
+        {
+            get { return autoNeu; }
+            set { autoNeu = value; }
+        }
+
     }
 }
