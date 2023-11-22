@@ -4,25 +4,25 @@ using Verlag;
 
 namespace VerlagTests
 {
-	[TestClass]
-	public class BuchTests
-	{
-		[TestMethod]
-		public void Buch_KannErstelltWerden()
-		{
-			//Arrange
-			string autor = "J.K. Rowling";
-			string titel = "Harry Potter und der Gefangene von Askaban";
-			int auflage = 1;
+    [TestClass]
+    public class BuchTests
+    {
+        [TestMethod]
+        public void Buch_KannErstelltWerden()
+        {
+            //Arrange
+            string autor = "J.K. Rowling";
+            string titel = "Harry Potter und der Gefangene von Askaban";
+            int auflage = 1;
 
-			//Act 
-			Buch b = new Buch(autor, titel, auflage);
+            //Act 
+            Buch b = new Buch(autor, titel, auflage);
 
-			//Assert
-			Assert.AreEqual(autor, b.Autor);
-			Assert.AreEqual(titel, b.Titel);
-			Assert.AreEqual(auflage, b.Auflage);
-		}
+            //Assert
+            Assert.AreEqual(autor, b.Autor);
+            Assert.AreEqual(titel, b.Titel);
+            Assert.AreEqual(auflage, b.Auflage);
+        }
 
         [TestMethod]
         public void Buch_KeineAuflageEntsprichtErsterAuflage()
@@ -36,48 +36,48 @@ namespace VerlagTests
             Assert.AreEqual(1, b.Auflage);
         }
 
-        //[TestMethod]
-        //public void Autor_DarfVeraendertWerden()
-        //{
-        //	//Arrange
-        //	string autor = "Abdullah";
-        //	string autorNeu = "Thomas";
+        [TestMethod]
+        public void Autor_DarfVeraendertWerden()
+        {
+            //Arrange
+            string autor = "Abdullah";
+            string autorNeu = "Thomas";
 
-        //	//Act
-        //	Buch b = new Buch(autor, "titel");
-        //	b.Autor = autorNeu;
+            //Act
+            Buch b = new Buch(autor, "titel");
+            b.Autor = autorNeu;
 
-        //	//Assert
-        //	Assert.AreEqual(autorNeu, b.Autor);
+            //Assert
+            Assert.AreEqual(autorNeu, b.Autor);
 
-        //}
+        }
 
-        //[TestMethod]
-        //public void Auflage_DarfVeraendertWerden()
-        //{
-        //	//Arrange
-        //	int auflage = 15;
-        //	int auflageNeu = 42;
+        [TestMethod]
+        public void Auflage_DarfVeraendertWerden()
+        {
+            //Arrange
+            int auflage = 15;
+            int auflageNeu = 42;
 
-        //	//Act
-        //	Buch b = new Buch("autor", "titel", auflage);
-        //	b.Auflage = auflageNeu;
+            //Act
+            Buch b = new Buch("autor", "titel", auflage);
+            b.Auflage = auflageNeu;
 
-        //	//Assert
-        //	Assert.AreEqual(auflageNeu, b.Auflage);
+            //Assert
+            Assert.AreEqual(auflageNeu, b.Auflage);
 
-        //}
+        }
 
-        //[TestMethod]
-        //[ExpectedException(typeof(ArgumentOutOfRangeException))]
-        //public void Buch_AuflageDarfNichtZuKleinSein()
-        //{
-        //	//Arrange
-        //	int auflage = 0;
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
+        public void Buch_AuflageDarfNichtZuKleinSein()
+        {
+            //Arrange
+            int auflage = 0;
 
-        //	//Act
-        //	Buch b = new Buch("autor", "titel", auflage);
-        //}
+            //Act
+            Buch b = new Buch("autor", "titel", auflage);
+        }
 
         //[TestMethod]
         //[ExpectedException(typeof(ArgumentOutOfRangeException))]
@@ -105,5 +105,27 @@ namespace VerlagTests
         //	//Act
         //	Buch b = new Buch(unerlaubtesZeichen, "titel");
         //}
+        //[TestMethod]
+        //public void ISBN_KannErgaenztWerden()
+        //{
+        //    //Arrange
+        //    string isbn = "978-3770436163";
+        //    Buch b = new Buch("autor", "titel");
+        //    //Act
+        //    b.ISBN = isbn;
+        //    //Assert
+        //    Assert.AreEqual(isbn, b.ISBN);
+        //}
+        //[TestMethod]
+        //public void ISBN_PruefzifferWirdAutomatischBerechnet()
+        //{
+        //    //Arrange
+        //    Buch b = new Buch("autor", "titel");
+        //    string isbnOhnePruefziffer = "978-3-88661-189";
+        //    string isbnMitPruefziffer = "978-3-88661-189-8";
+        //    //Act
+        //    b.ISBN = isbnOhnePruefziffer;
+        //    //Assert
+        //    Assert.AreEqual(isbnMitPruefziffer, b.ISBN);
     }
 }

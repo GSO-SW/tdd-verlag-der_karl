@@ -16,7 +16,7 @@ namespace Verlag
         private string iSBN13;
         private string iSBN10;
 
-        public Buch(string autor, string titel, int auflage):this(autor, titel)
+        public Buch(string autor, string titel, int auflage) : this(autor, titel)
         {
             this.auflage = auflage;
         }
@@ -34,19 +34,27 @@ namespace Verlag
 
         public string Titel
         {
-            get { return titel; } 
-            set { titel = value; }
+            get { return titel; }
         }
-        
+
         public int Auflage
         {
             get { return auflage; }
-            set { auflage = value; }
-        } 
+            set
+            {
+                if (value < 1)
+                {
+                    throw new ArgumentOutOfRangeException("Auflage darf nicht zu klein sein.");
+                }
+                else
+                {
+                    auflage = value;
+                }
+            }
+        }
         public string autoNeu
         {
             get { return autoNeu; }
-            set { autoNeu = value; }
         }
         public string ISBN
         {
