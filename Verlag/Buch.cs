@@ -101,7 +101,7 @@ namespace Verlag
                         else count += Convert.ToInt32(iSBN13[i]);
                         x = x * -1;
                     }
-                    iSBN13 += count;
+                    iSBN13 += 10 - (count % 10 );
                 }
                 return iSBN13;
             }
